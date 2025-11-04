@@ -1,0 +1,155 @@
+@prefix ex: <http://example.org/ipl/data/> .
+@prefix vocab: <http://example.org/ipl/vocab/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# --- Vocabulary/Schema Definitions ---
+# Defining the key classes for clarity in the graph
+vocab:Match a rdfs:Class ; rdfs:label "Match" .
+vocab:Team a rdfs:Class ; rdfs:label "Team" .
+vocab:Venue a rdfs:Class ; rdfs:label "Venue" .
+vocab:Player a rdfs:Class ; rdfs:label "Player" .
+vocab:BattingPerformance a rdfs:Class ; rdfs:label "Batting Performance" .
+vocab:BowlingPerformance a rdfs:Class ; rdfs:label "Bowling Performance" .
+
+# --- Match, Venue, and Innings Data ---
+ex:Chepauk_Stadium a vocab:Venue ;
+    vocab:name "MA Chidambaram Stadium, Chennai" ;
+    vocab:location "Chennai" .
+
+ex:Team_CSK a vocab:Team ; vocab:teamName "Chennai Super Kings" ; vocab:shortName "CSK" .
+ex:Team_RCB a vocab:Team ; vocab:teamName "Royal Challengers Bengaluru" ; vocab:shortName "RCB" .
+
+ex:Match_IPL2024_01 a vocab:Match ;
+    vocab:matchID "IPL2024_01"^^xsd:string ;
+    vocab:date "2024-03-22"^^xsd:date ;
+    vocab:venue ex:Chepauk_Stadium ;
+    vocab:teamA ex:Team_CSK ;
+    vocab:teamB ex:Team_RCB ;
+    vocab:winner ex:Team_CSK ;
+    vocab:totalRuns_TeamA 176 ;
+    vocab:totalRuns_TeamB 173 .
+
+# =======================================================
+# --- CSK Playing XI (11) + Impact Player (1) ---
+# =======================================================
+
+ex:Player_RuturajGaikwad a vocab:Player ;
+    vocab:playerName "Ruturaj Gaikwad" ; vocab:playsForTeam ex:Team_CSK ; vocab:playerRole "Batter/Captain" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 15 ; vocab:ballsFaced 15 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+
+ex:Player_RachinRavindra a vocab:Player ;
+    vocab:playerName "Rachin Ravindra" ; vocab:playsForTeam ex:Team_CSK ; vocab:playerRole "Batter/AllRounder" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 37 ; vocab:ballsFaced 15 ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 0.0 ; vocab:runsConceded 0 ; vocab:wicketsTaken 0 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+
+ex:Player_AjinkyaRahane a vocab:Player ;
+    vocab:playerName "Ajinkya Rahane" ; vocab:playsForTeam ex:Team_CSK ; vocab:playerRole "Batter" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 27 ; vocab:ballsFaced 19 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+
+ex:Player_DarylMitchell a vocab:Player ;
+    vocab:playerName "Daryl Mitchell" ; vocab:playsForTeam ex:Team_CSK ; vocab:playerRole "AllRounder" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 22 ; vocab:ballsFaced 18 ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 0.0 ; vocab:runsConceded 0 ; vocab:wicketsTaken 0 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+    
+ex:Player_RavindraJadeja a vocab:Player ;
+    vocab:playerName "Ravindra Jadeja" ; vocab:playsForTeam ex:Team_CSK ; vocab:playerRole "AllRounder" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 25 ; vocab:ballsFaced 17 ; vocab:notOut true ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 4.0 ; vocab:runsConceded 21 ; vocab:wicketsTaken 0 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+
+ex:Player_SameerRizvi a vocab:Player ;
+    vocab:playerName "Sameer Rizvi" ; vocab:playsForTeam ex:Team_CSK ; vocab:playerRole "Batter" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 0 ; vocab:ballsFaced 0 ; vocab:didNotBat true ; vocab:atMatch ex:Match_IPL2024_01 ] .
+    
+ex:Player_MSDhoni a vocab:Player ;
+    vocab:playerName "MS Dhoni" ; vocab:playsForTeam ex:Team_CSK ; vocab:playerRole "WicketKeeper" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 0 ; vocab:ballsFaced 0 ; vocab:didNotBat true ; vocab:atMatch ex:Match_IPL2024_01 ] .
+
+ex:Player_DeepakChahar a vocab:Player ;
+    vocab:playerName "Deepak Chahar" ; vocab:playsForTeam ex:Team_CSK ; vocab:playerRole "Bowler" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 0 ; vocab:ballsFaced 0 ; vocab:didNotBat true ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 4.0 ; vocab:runsConceded 37 ; vocab:wicketsTaken 1 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+    
+ex:Player_MaheeshTheekshana a vocab:Player ;
+    vocab:playerName "Maheesh Theekshana" ; vocab:playsForTeam ex:Team_CSK ; vocab:playerRole "Bowler" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 0 ; vocab:ballsFaced 0 ; vocab:didNotBat true ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 4.0 ; vocab:runsConceded 36 ; vocab:wicketsTaken 0 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+    
+ex:Player_TusharDeshpande a vocab:Player ;
+    vocab:playerName "Tushar Deshpande" ; vocab:playsForTeam ex:Team_CSK ; vocab:playerRole "Bowler" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 0 ; vocab:ballsFaced 0 ; vocab:didNotBat true ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 4.0 ; vocab:runsConceded 47 ; vocab:wicketsTaken 0 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+    
+ex:Player_MustafizurRahman a vocab:Player ;
+    vocab:playerName "Mustafizur Rahman" ; vocab:playsForTeam ex:Team_CSK ; vocab:playerRole "Bowler" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 0 ; vocab:ballsFaced 0 ; vocab:didNotBat true ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 4.0 ; vocab:runsConceded 29 ; vocab:wicketsTaken 4 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+    
+# Impact Player for CSK (Batted)
+ex:Player_ShivamDube a vocab:Player ;
+    vocab:playerName "Shivam Dube" ; vocab:playsForTeam ex:Team_CSK ; vocab:playerRole "AllRounder" ; vocab:isStartingXI false ;
+    vocab:isImpactPlayerIn ex:Match_IPL2024_01 ;
+    vocab:battingScore [ vocab:runs 34 ; vocab:ballsFaced 28 ; vocab:notOut true ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 0.0 ; vocab:runsConceded 0 ; vocab:wicketsTaken 0 ; vocab:atMatch ex:Match_IPL2024_01 ] . # No bowling
+
+# =======================================================
+# --- RCB Playing XI (11) + Impact Player (1) ---
+# =======================================================
+
+ex:Player_FafDuPlessis a vocab:Player ;
+    vocab:playerName "Faf du Plessis" ; vocab:playsForTeam ex:Team_RCB ; vocab:playerRole "Batter/Captain" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 35 ; vocab:ballsFaced 23 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+
+ex:Player_ViratKohli a vocab:Player ;
+    vocab:playerName "Virat Kohli" ; vocab:playsForTeam ex:Team_RCB ; vocab:playerRole "Batter" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 21 ; vocab:ballsFaced 20 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+
+ex:Player_RajatPatidar a vocab:Player ;
+    vocab:playerName "Rajat Patidar" ; vocab:playsForTeam ex:Team_RCB ; vocab:playerRole "Batter" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 0 ; vocab:ballsFaced 3 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+
+ex:Player_GlennMaxwell a vocab:Player ;
+    vocab:playerName "Glenn Maxwell" ; vocab:playsForTeam ex:Team_RCB ; vocab:playerRole "AllRounder" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 0 ; vocab:ballsFaced 1 ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 1.0 ; vocab:runsConceded 7 ; vocab:wicketsTaken 0 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+    
+ex:Player_CameronGreen a vocab:Player ;
+    vocab:playerName "Cameron Green" ; vocab:playsForTeam ex:Team_RCB ; vocab:playerRole "AllRounder" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 18 ; vocab:ballsFaced 22 ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 3.0 ; vocab:runsConceded 27 ; vocab:wicketsTaken 2 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+
+ex:Player_DineshKarthik a vocab:Player ;
+    vocab:playerName "Dinesh Karthik" ; vocab:playsForTeam ex:Team_RCB ; vocab:playerRole "WicketKeeper" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 38 ; vocab:ballsFaced 26 ; vocab:notOut true ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 0.0 ; vocab:runsConceded 0 ; vocab:wicketsTaken 0 ; vocab:atMatch ex:Match_IPL2024_01 ] . # Did not bowl
+    
+ex:Player_AnujRawat a vocab:Player ;
+    vocab:playerName "Anuj Rawat" ; vocab:playsForTeam ex:Team_RCB ; vocab:playerRole "WicketKeeper" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 48 ; vocab:ballsFaced 25 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+
+ex:Player_KarnSharma a vocab:Player ;
+    vocab:playerName "Karn Sharma" ; vocab:playsForTeam ex:Team_RCB ; vocab:playerRole "Bowler" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 0 ; vocab:ballsFaced 0 ; vocab:didNotBat true ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 2.0 ; vocab:runsConceded 24 ; vocab:wicketsTaken 1 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+    
+ex:Player_AlzarriJoseph a vocab:Player ;
+    vocab:playerName "Alzarri Joseph" ; vocab:playsForTeam ex:Team_RCB ; vocab:playerRole "Bowler" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 0 ; vocab:ballsFaced 0 ; vocab:didNotBat true ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 3.4 ; vocab:runsConceded 38 ; vocab:wicketsTaken 0 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+    
+ex:Player_MayankDagar a vocab:Player ;
+    vocab:playerName "Mayank Dagar" ; vocab:playsForTeam ex:Team_RCB ; vocab:playerRole "Bowler" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 0 ; vocab:ballsFaced 0 ; vocab:didNotBat true ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 2.0 ; vocab:runsConceded 6 ; vocab:wicketsTaken 0 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+
+ex:Player_MohammedSiraj a vocab:Player ;
+    vocab:playerName "Mohammed Siraj" ; vocab:playsForTeam ex:Team_RCB ; vocab:playerRole "Bowler" ; vocab:isStartingXI true ;
+    vocab:battingScore [ vocab:runs 0 ; vocab:ballsFaced 0 ; vocab:didNotBat true ; vocab:atMatch ex:Match_IPL2024_01 ] ;
+    vocab:bowlingScore [ vocab:overs 4.0 ; vocab:runsConceded 38 ; vocab:wicketsTaken 0 ; vocab:atMatch ex:Match_IPL2024_01 ] .
+
+# Impact Player for RCB (Bowled)
+ex:Player_YashDayal a vocab:Player ;
+    vocab:playerName "Yash Dayal" ; vocab:playsForTeam ex:Team_RCB ; vocab:playerRole "Bowler" ; vocab:isStartingXI false ;
+    vocab:isImpactPlayerIn ex:Match_IPL2024_01 ;
+    vocab:battingScore [ vocab:runs 0 ; vocab:ballsFaced 0 ; vocab:didNotBat true ; vocab:atMatch ex:Match_IPL2024_01 ] ; # Did not bat
+    vocab:bowlingScore [ vocab:overs 3.0 ; vocab:runsConceded 28 ; vocab:wicketsTaken 1 ; vocab:atMatch ex:Match_IPL2024_01 ] .
